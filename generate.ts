@@ -14,7 +14,9 @@ async function main() {
     );
   });
 
-  const merkleTree = new MerkleTree(airdropList, utils.keccak256);
+  const merkleTree = new MerkleTree(airdropList, utils.keccak256, {
+    sortPairs: true,
+  });
   const merkleRoot = "0x" + merkleTree.getRoot().toString("hex");
 
   const pathToDist = resolve(__dirname, "./dist/");
